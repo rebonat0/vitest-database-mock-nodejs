@@ -7,8 +7,8 @@ export const getUserByEmail = async (email: string) => {
         },
     });
 
-    if (!email) {
-        throw 'No user found with this email';
+    if (!user) {
+        throw new Error('No user found with this email');
     }
 
     return user;

@@ -1,12 +1,10 @@
-import { beforeEach } from 'vitest';
-import { mockDeep, mockReset } from 'vitest-mock-extended';
-
-import type prismaAdapter from '../prisma-adapter';
-
-const mockPrismaAdapter = mockDeep<typeof prismaAdapter>();
+import { PrismaClient } from "@prisma/client";
+import { beforeEach } from "vitest";
+import { mockDeep, mockReset } from "vitest-mock-extended";
 
 beforeEach(() => {
-    mockReset(mockPrismaAdapter);
+  mockReset(prismaAdapter);
 });
 
-export { mockPrismaAdapter };
+const prismaAdapter = mockDeep<PrismaClient>();
+export default prismaAdapter;
